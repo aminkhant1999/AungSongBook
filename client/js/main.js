@@ -1,6 +1,6 @@
 import { api } from "./api.js";
 import { parseChordSheet, transposeChord } from "./music.js";
-import { theoryPage } from "./theory.js?v=20260723-3";
+import { theoryPage } from "./theory.js?v=20260723-4";
 
 const main=document.querySelector("#main"),authButton=document.querySelector("#auth-button"),loginDialog=document.querySelector("#login-dialog"),toast=document.querySelector("#toast");
 const publicDemo=location.hostname.endsWith(".chatgpt.site");
