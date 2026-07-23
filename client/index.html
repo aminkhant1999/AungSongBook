@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A calm personal library for lyrics, chords, and practice.">
+  <meta name="color-scheme" content="light dark">
+  <title>AMK Songbook</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#/"><span class="brand-mark">A</span><span>AMK <small>Songbook</small></span></a>
+    <button id="menu" class="icon-btn mobile" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav id="nav" aria-label="Main navigation">
+      <a href="#/">Songs</a><a href="#/?language=English">Languages</a><a href="#/?sort=opened_new">Recently opened</a>
+    </nav>
+    <div class="actions"><button id="theme" class="icon-btn" aria-label="Change colour theme">◐</button><button id="auth-button" class="button ghost">Login</button></div>
+  </header>
+  <main id="main" tabindex="-1"><div class="loading">Opening your songbook…</div></main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="login-dialog">
+    <form id="login-form" class="form" method="dialog">
+      <div class="dialog-head"><div><span class="eyebrow">Administrator</span><h2>Welcome back</h2></div><button class="icon-btn" value="cancel" aria-label="Close">×</button></div>
+      <label>Username<input name="username" autocomplete="username" value="AMK" required></label>
+      <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+      <p id="login-error" class="error" role="alert"></p>
+      <button class="button primary" value="default">Sign in</button>
+    </form>
+  </dialog>
+  <dialog id="confirm-dialog"><form method="dialog" class="form"><h2 id="confirm-title">Are you sure?</h2><p id="confirm-copy"></p><div class="button-row"><button value="cancel" class="button ghost">Cancel</button><button value="confirm" class="button danger">Delete</button></div></form></dialog>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "personal-songbook",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node --watch server/app.js",
+    "server": "node server/app.js",
+    "client": "node server/app.js",
+    "start": "NODE_ENV=production node server/app.js",
+    "build": "node scripts/build.js",
+    "test": "NODE_ENV=test node --test --test-concurrency=1",
+    "lint": "eslint .",
+    "seed": "node server/scripts/seed.js",
+    "hash-password": "node server/scripts/hash-password.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.2.0",
+    "compression": "^1.8.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "helmet": "^8.1.0",
+    "sanitize-html": "^2.17.0",
+    "zod": "^4.0.10"
+  },
+  "devDependencies": {
+    "eslint": "^9.32.0",
+    "supertest": "^7.1.4"
+  }
+}

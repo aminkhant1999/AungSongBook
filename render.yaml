@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: amk-songbook
+    runtime: node
+    plan: starter
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk:
+      name: songbook-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: DATABASE_URL
+        value: /opt/render/project/src/data/songbook.db
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_USERNAME
+        value: AMK
+      - key: ADMIN_PASSWORD_HASH
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
