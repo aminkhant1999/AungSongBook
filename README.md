@@ -214,17 +214,18 @@ Build with the included `Dockerfile`, mount persistent storage at `/app/data`, a
 - Input is validated and sanitised before persistence.
 - Add or publish lyrics and chord arrangements only when you have permission to store and display them.
 
-### Public demo isolation
+### Secure hosted editing
 
-The portfolio deployment is deliberately separated from the private administrator application:
+The portfolio deployment keeps public reading and private editing separate:
 
-- It contains a read-only snapshot of published songs, not the writable SQLite database.
-- It contains no administrator password, password hash, session secret, `.env` file, draft song, or database backup.
-- Login and every `/api/admin` route return `403 Forbidden`.
-- The administrator interface is removed from the public UI.
-- Private song editing continues through the local application and its ignored, backed-up database.
+- Published songs and theory lessons remain available to every visitor.
+- The owner can select **Admin sign in** and authenticate with ChatGPT to add, edit, publish, or remove songs directly in the browser.
+- Server-side authorization restricts every `/api/admin` write route to the verified owner account.
+- Hosted songs are stored in the managed D1 database and survive deployments, browser changes, and local-computer changes.
+- No administrator password, password hash, session secret, `.env` file, or SQLite backup is included in the deployed bundle.
+- Deletes remain soft deletes in the hosted database rather than immediately erasing the record.
 
-Publishing this repository does not publish the local `.env` or `data/` directory because both are excluded by `.gitignore`.
+The local SQLite workflow remains available for development. Publishing this repository does not publish the local `.env` or `data/` directory because both are excluded by `.gitignore`.
 
 ## 🩺 Troubleshooting
 
