@@ -214,6 +214,18 @@ Build with the included `Dockerfile`, mount persistent storage at `/app/data`, a
 - Input is validated and sanitised before persistence.
 - Add or publish lyrics and chord arrangements only when you have permission to store and display them.
 
+### Public demo isolation
+
+The portfolio deployment is deliberately separated from the private administrator application:
+
+- It contains a read-only snapshot of published songs, not the writable SQLite database.
+- It contains no administrator password, password hash, session secret, `.env` file, draft song, or database backup.
+- Login and every `/api/admin` route return `403 Forbidden`.
+- The administrator interface is removed from the public UI.
+- Private song editing continues through the local application and its ignored, backed-up database.
+
+Publishing this repository does not publish the local `.env` or `data/` directory because both are excluded by `.gitignore`.
+
 ## 🩺 Troubleshooting
 
 - **Login is unavailable:** set both `ADMIN_PASSWORD_HASH` and `SESSION_SECRET`, then restart.
