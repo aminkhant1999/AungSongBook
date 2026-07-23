@@ -351,11 +351,28 @@
   cursor: pointer;
 }
 .rhythm-value-list button:hover, .rhythm-value-list button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent2); }
-.rhythm-value-list button > span:not(.music-symbol), .rhythm-rest { display: flex; flex-direction: column; gap: 2px; }
+.rhythm-value-list button > span:not(.music-icon), .rhythm-rest { display: flex; flex-direction: column; gap: 2px; }
 .rhythm-value-list small, .duration-result small, .dot-toggle small { color: var(--muted); font-size: 9px; }
 .rhythm-value-list strong { color: var(--accent); font-size: 12px; text-align: right; }
-.music-symbol { font: 35px "Noto Music", "Apple Symbols", "Segoe UI Symbol", serif; line-height: 1; text-align: center; }
-.rhythm-rest i { font: 25px "Noto Music", "Apple Symbols", "Segoe UI Symbol", serif; font-style: normal; }
+.music-icon { position: relative; display: inline-block; width: 34px; height: 42px; flex: 0 0 34px; color: currentColor; }
+.music-icon i, .music-icon b, .music-icon em, .music-icon u { position: absolute; display: block; box-sizing: border-box; padding: 0; text-decoration: none; }
+.note-icon i { left: 4px; bottom: 3px; width: 20px; height: 13px; border: 3px solid currentColor; border-radius: 50%; transform: rotate(-16deg); }
+.note-icon b { right: 7px; top: 3px; width: 3px; height: 31px; background: currentColor; }
+.note-quarter i, .note-eighth i, .note-sixteenth i { background: currentColor; }
+.note-whole b { display: none; }
+.note-eighth em, .note-sixteenth em, .note-sixteenth u { right: -1px; top: 4px; width: 12px; height: 15px; border-top: 4px solid currentColor; border-right: 4px solid currentColor; border-radius: 0 10px 0 0; transform: rotate(24deg); }
+.note-sixteenth u { top: 13px; }
+.note-icon.is-dotted::after { content: ""; position: absolute; right: -2px; bottom: 8px; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.rest-icon i { left: 3px; top: 15px; width: 28px; height: 2px; background: color-mix(in srgb, currentColor 48%, transparent); }
+.rest-whole b, .rest-half b { left: 9px; width: 17px; height: 7px; background: currentColor; }
+.rest-whole b { top: 16px; }
+.rest-half b { top: 9px; }
+.rest-quarter b { left: 15px; top: 4px; width: 5px; height: 25px; background: currentColor; transform: skew(-18deg) rotate(-19deg); }
+.rest-quarter em { left: 10px; top: 22px; width: 14px; height: 5px; background: currentColor; transform: rotate(38deg); }
+.rest-quarter u { left: 13px; top: 29px; width: 9px; height: 9px; border-left: 4px solid currentColor; border-bottom: 4px solid currentColor; transform: rotate(-28deg); }
+.rest-eighth b, .rest-sixteenth b { left: 17px; top: 5px; width: 3px; height: 31px; background: currentColor; transform: rotate(14deg); }
+.rest-eighth em, .rest-sixteenth em, .rest-sixteenth u { left: 7px; top: 6px; width: 10px; height: 8px; border-radius: 50%; background: currentColor; }
+.rest-sixteenth u { left: 10px; top: 18px; }
 .dot-toggle { display: flex; align-items: center; gap: 10px; margin: 14px 0; padding: 11px 13px; border: 1px solid var(--line); border-radius: 11px; background: var(--panel); cursor: pointer; }
 .dot-toggle span { display: flex; flex-direction: column; gap: 2px; font-weight: 700; }
 .dot-toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
@@ -363,7 +380,7 @@
 .duration-result div { display: flex; flex-direction: column; gap: 7px; align-items: center; }
 .duration-result strong { color: var(--accent); font: 24px Newsreader, serif; }
 .duration-result > i { color: var(--muted); font-size: 11px; font-style: normal; }
-.duration-result .rest-symbol { color: var(--warm); }
+.duration-result .rest-icon { color: var(--warm); }
 
 .meter-demo { display: flex; gap: 8px; margin: 24px 0; }
 .meter-demo button { padding: 10px 15px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--ink); cursor: pointer; }
