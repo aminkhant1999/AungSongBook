@@ -573,12 +573,24 @@
 .node-7 { left: 41%; }
 .node-12 { left: 58%; }
 
-.progression-output { display: flex; gap: 10px; margin: 28px 0; }
-.progression-output span { flex: 1; min-height: 78px; border-radius: 13px; background: var(--ink); color: var(--bg); display: grid; place-items: center; font: 27px Newsreader, serif; }
+.practice-controls { display: grid; grid-template-columns: .6fr 1.4fr; gap: 10px; margin: 18px 0 12px; }
+.practice-controls label { font-size: 11px; font-weight: 700; }
+.practice-controls label:last-child { grid-column: 1 / -1; }
+.practice-controls select { display: block; width: 100%; margin-top: 6px; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--ink); }
+.progression-formula { min-height: 18px; margin: 8px 0; color: var(--muted); font-size: 11px; text-align: center; }
+.progression-output { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 18px; }
+.progression-output span { flex: 1 1 64px; min-height: 68px; border-radius: 13px; background: var(--ink); color: var(--bg); display: grid; place-items: center; font: 25px Newsreader, serif; }
 .progression-output small { font: 600 9px "DM Sans", sans-serif; color: var(--accent); }
-.strum-strip { display: flex; align-items: center; justify-content: center; gap: 10px; }
-.strum-strip b { margin-right: 8px; font-size: 10px; }
-.strum-strip span { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--accent2); color: var(--accent); font-weight: 800; }
+.strum-practice { padding: 14px; border: 1px solid var(--line); border-radius: 13px; background: var(--panel); }
+.strum-practice > div:first-child { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 9px; }
+.strum-practice > div:first-child b { font: 19px Newsreader, serif; }
+.strum-practice > div:first-child small { color: var(--accent); font-weight: 800; }
+.strum-counts, .strum-strokes { display: grid; grid-template-columns: repeat(var(--strum-steps, 8), 1fr); gap: 5px; text-align: center; }
+.strum-counts span { color: var(--muted); font-size: 9px; }
+.strum-strokes span { min-height: 35px; display: grid; place-items: center; border-radius: 9px; background: var(--accent2); color: var(--accent); font-size: 19px; font-weight: 800; }
+.strum-strokes span.skip { background: transparent; border: 1px dashed var(--line); color: var(--muted); }
+.strum-strokes span.mute { color: var(--warm); }
+.strum-practice p { margin: 10px 0 0; color: var(--muted); font-size: 9px; line-height: 1.5; text-align: center; }
 
 @media (max-width: 850px) {
   .theory-lesson-open .theory-hero,
@@ -631,4 +643,6 @@
   .guitar-legend { grid-template-columns: 1fr; }
   .finger-key { grid-template-columns: repeat(5, minmax(48px, 1fr)); overflow-x: auto; }
   .barre-examples, .harmonic-fractions { grid-template-columns: 1fr; }
+  .practice-controls { grid-template-columns: 1fr; }
+  .practice-controls label:last-child { grid-column: auto; }
 }
